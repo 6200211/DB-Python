@@ -1,4 +1,14 @@
+# Імпортуємо модуль requests для виконання HTTP-запитів
 import requests
 
-res = requests.put("http://127.0.0.1:3000/api/courses/2", {"name": "Golang", "videos": 5})
+# Задаємо URL для PUT-запиту, щоб оновити інформацію користувача з ID 4
+url = "http://127.0.0.1:3000/api/users/4"
+
+# Визначаємо дані для оновлення у форматі словника: нове ім'я користувача "Lyolik" і вік 15 років
+data = {"name": "Lyolik", "age": 15}
+
+# Виконуємо HTTP PUT-запит на вказаний URL з переданими даними у форматі JSON
+res = requests.put(url, json=data)
+
+# Виводимо відповідь сервера, перетворену у формат JSON
 print(res.json())
